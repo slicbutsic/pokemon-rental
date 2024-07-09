@@ -1,9 +1,12 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+puts "Destroying all users..."
+User.destroy_all
+
+puts "Destroying all pokemons..."
+Pokemon.destroy_all
+
+puts "Creating user...."
+user1 = User.create(email: "user@admin.com", password: "123456", password_confirmation: "123456")
+
+puts "Creating pokemons...."
+Pokemon.create!(user: user1, name: "Pikachu", overview: "Best friend", photo_url: "https://img.pokemondb.net/artwork/large/pikachu.jpg")
+Pokemon.create!(user: user1, name: "Charmander", overview: "Great fighter", photo_url: "https://img.pokemondb.net/artwork/large/charmander.jpg")
