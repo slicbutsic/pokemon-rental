@@ -1,0 +1,9 @@
+<div class="container text-center">
+  <h1 class="pokemon-name"><%= @pokemon.name %></h1>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <%= image_tag @pokemon.photo_url, class: "img-fluid pokemon-image", alt: "Pokemon Image" %>
+    </div>
+  </div>
+  <p class="pokemon-overview"><%= @pokemon.overview %></p>
+</div>
