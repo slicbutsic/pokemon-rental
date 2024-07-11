@@ -1,4 +1,8 @@
 <% @pokemons.each do |pokemon| %>
-  <%= pokemon.name %>
-  <%= image_tag pokemon.photo_url %>
+  <li>
+    <%= link_to pokemon_path(pokemon) do %>
+      <%= image_tag pokemon.photo_url, height: "50px", width: "50px" %>
+    <% end %>
+  </li>
 <% end %>
+</ul>
