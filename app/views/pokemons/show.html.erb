@@ -1,0 +1,51 @@
+<div class="container mt-3">
+  <h1><%= @pokemon.name %></h1>
+  <div class="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= cl_image_tag("https://res.cloudinary.com/dzwrjb71e/image/upload/v1720585313/l8koth1wzqaflyjxswsn.jpg", class: "d-block w-100", crop: :fill)  %>
+        </div>
+        <div class="carousel-item">
+          <%= cl_image_tag("https://res.cloudinary.com/dzwrjb71e/image/upload/v1720591020/xizyrfvjfn58x5ugdqyi.jpg", class: "d-block w-100", crop: :fill)  %>
+        </div>
+        <div class="carousel-item">
+          <%= cl_image_tag("https://res.cloudinary.com/dzwrjb71e/image/upload/v1720585410/geqs3omxsbyrpvgwvvpq.jpg", class: "d-block w-100", crop: :fill)  %>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="row d-flex">
+    <div class="col-8">
+      <div style="border-bottom: 1px solid rgb(221, 221, 221); padding-top: 24px; padding-bottom: 24px;">
+        <p>★ 23 reviews</p>
+        <p><%= @pokemon.overview %></p>
+      </div>
+      <div>
+
+      </div>
+
+    </div>
+    <div class="col-4 ">
+      <div class="price-card" style="border: 1px solid rgb(221, 221, 221); border-radius: 12px; padding: 24px; box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;">
+        <h2>Price</h2>
+        <span>$20 AUD</span>
+      </div>
+    </div>
+  </div>
+
+</div>
