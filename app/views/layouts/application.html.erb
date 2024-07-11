@@ -34,7 +34,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
               </li>
-                <%= link_to "Log in", "/pokemons/new", class: "nav-link" %>
+                <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
               <li class="nav-item dropdown">
                 <%= cl_image_tag ("https://res.cloudinary.com/dzwrjb71e/image/upload/v1720571869/icnn6sgkbj6webephy7o.jpg"), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
