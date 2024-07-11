@@ -1,8 +1,21 @@
-<% @pokemons.each do |pokemon| %>
-  <li>
-    <%= link_to pokemon_path(pokemon) do %>
-      <%= image_tag pokemon.photo_url, height: "50px", width: "50px" %>
-    <% end %>
-  </li>
-<% end %>
-</ul>
+<%# Card below... %>
+<%# It definitely needs more changes, but we will need to change the seed first to get all the info... then we can update the card.. :) %>
+
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <% @pokemons.each do |pokemon| %>
+        <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-center">
+          <%= link_to pokemon_path(pokemon), style: "text-decoration: none;" do %>
+            <div class="card mb-4 shadow-sm">
+              <%= image_tag pokemon.photo_url, class: "card-img-top", alt: "Description of the image" %>
+              <div class="card-body">
+                <p class="card-text"><%= pokemon.name %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
