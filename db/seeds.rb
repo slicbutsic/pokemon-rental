@@ -1,18 +1,20 @@
-# puts "Destroying all users..."
-# User.destroy_all
+puts "Destroying all pokemons..."
+Pokemon.destroy_all
 
-# puts "Destroying all pokemons..."
-# Pokemon.destroy_all
+puts "Destroying all users..."
+User.destroy_all
 
-# puts "Creating user...."
-# user1 = User.create(email: "user@admin.com", password: "123456", password_confirmation: "123456")
 
-# puts "Creating pokemons...."
-# Pokemon.create!(user: user1, name: "Pikachu", overview: "Best friend", photo_url: "https://img.pokemondb.net/artwork/large/pikachu.jpg")
-# Pokemon.create!(user: user1, name: "Charmander", overview: "Great fighter", photo_url: "https://img.pokemondb.net/artwork/large/charmander.jpg")
-# user2 = User.create(email: "test@test.com", password: "123456", password_confirmation: "123456")
-# Pokemon.create!(user: user2, name: "Bulbasaur", overview: "Bulbasaur are small, amphibian and plant Pokémon that move on all four legs. They have blue-green bodies with darker blue-green spots. The seed on a Bulbasaur's back is planted at birth and then sprouts and grows along with it.", photo_url: "https://img.pokemondb.net/artwork/large/bulbasaur.jpg")
-# Pokemon.create!(user: user2, name: "Squirtle", overview: "quirtle is a small, light-blue Pokémon with an appearance similar to a turtle. With its aerodynamic shape and grooved surface, Squirtle's shell helps it wade through the water very quickly. It also offers protection in battle.", photo_url: "https://img.pokemondb.net/artwork/large/squirtle.jpg")
+
+puts "Creating user...."
+user1 = User.create(email: "user@admin.com", password: "123456", password_confirmation: "123456")
+
+puts "Creating pokemons...."
+Pokemon.create!(user: user1, name: "Pikachu", overview: "Best friend", photo_url: "https://img.pokemondb.net/artwork/large/pikachu.jpg")
+Pokemon.create!(user: user1, name: "Charmander", overview: "Great fighter", photo_url: "https://img.pokemondb.net/artwork/large/charmander.jpg")
+user2 = User.create(email: "test@test.com", password: "123456", password_confirmation: "123456")
+Pokemon.create!(user: user2, name: "Bulbasaur", overview: "Bulbasaur are small, amphibian and plant Pokémon that move on all four legs. They have blue-green bodies with darker blue-green spots. The seed on a Bulbasaur's back is planted at birth and then sprouts and grows along with it.", photo_url: "https://img.pokemondb.net/artwork/large/bulbasaur.jpg")
+Pokemon.create!(user: user2, name: "Squirtle", overview: "quirtle is a small, light-blue Pokémon with an appearance similar to a turtle. With its aerodynamic shape and grooved surface, Squirtle's shell helps it wade through the water very quickly. It also offers protection in battle.", photo_url: "https://img.pokemondb.net/artwork/large/squirtle.jpg")
 user3 = User.create(email: "user@test.com", password: "123456", password_confirmation: "123456")
 Pokemon.create!(user: user3, name: "Jigglypuff", overview: "Jigglypuff is a round, pink ball with pointed ears and large, blue eyes. It has rubbery, balloon-like skin and small, stubby arms and somewhat long feet", photo_url: "https://img.pokemondb.net/artwork/large/jigglypuff.jpg")
 Pokemon.create!(user: user3, name: "Meowth", overview: "Meowth is a small, feline Pokémon with cream-colored fur and a distinct coin-like charm on its forehead. Its ears are black with brown insides, and they are large with tufts of fur at the base.", photo_url: "https://img.pokemondb.net/artwork/large/meowth.jpg")
