@@ -9,67 +9,18 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <script src="https://kit.fontawesome.com/e0f18629e3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-      <div class="container-fluid">
-        <%= link_to root_path, class: "navbar-brand" do %>
-          <%= image_tag "pokemon-photo.jpg" %>
-        <% end %>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto">
-            <%# if user_signed_in? %>
-              <li class="nav-item active">
-                <%= link_to "Home", "/", class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-              </li>
-                <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
-              <li class="nav-item dropdown">
-                <%= cl_image_tag ("https://res.cloudinary.com/dzwrjb71e/image/upload/v1720571869/icnn6sgkbj6webephy7o.jpg"), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <%= link_to "My list", "#", class: "dropdown-item" %>
-                  <%= link_to "Cart", "#", class: "dropdown-item" %>
-                  <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
-                  <%# link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-                </div>
-              </li>
-                <%# else %>
-                <!--li class="nav-item"-->
-                <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
-                <!--/li-->
-                <%# end %>
-          </ul>
-        </div>
-      </div>
-    </div>
-
+    <%= render "shared/flashes" %>
+    <%= render "shared/navbar" %>
+        <% if user_signed_in? %>
+      <h6 class="my-0 py-2 px-3 bg-light">Hi <%= current_user.email %> 🎈</h6>
+    <% end %>
     <%= yield %>
 
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-      <div class="col-md-4 d-flex align-items-center">
-        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-          <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-        </a>
-        <span class="text-muted">© 2024 PokemonWorld, Inc</span>
-      </div>
-
-      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex mx-5">
-        <li class="ms-3"><a class="text-muted" href="#"><i class="fa-brands fa-twitter footer-icon"></i></a></li>
-        <li class="ms-3"><a class="text-muted" href="#"><i class="fa-brands fa-square-instagram footer-icon"></i></a></li>
-        <li class="ms-3"><a class="text-muted" href="#"><i class="fa-brands fa-facebook footer-icon"></i></a></li>
-      </ul>
-    </footer>
+    <%= render "shared/footer" %>
 
   </body>
 </html>
