@@ -1,0 +1,10 @@
+<div>
+  <%=simple_form_for(@pokemon) do |f| %>
+    <%= f.input :name%>
+    <%= f.input :overview%>
+    <%= f.input :photos, as: :file, input_html:{multiple: true} %>
+    <%= f.association :user%>
+    <%= f.input :price%>
+    <%= f.submit%>
+  <%end%>
+</div>
