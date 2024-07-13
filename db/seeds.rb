@@ -12,12 +12,15 @@ user1 = User.create(email: "user@admin.com", password: "123456", password_confir
 
 puts "Creating pokemons...."
 
-pokemon_name_url = "https://pokeapi.co/api/v2/pokemon?limit=150&offset=0"
+# Querying for all pokemons
+
+pokemon_name_url = "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0"
 user_serialized = URI.open(pokemon_name_url).read
 user = JSON.parse(user_serialized)
 
 pokemon_hash = user["results"]
 
+# Iterating over each pokemon
 pokemon_hash.each do |pokemon|
   pokemon_url = pokemon["url"]
 
@@ -25,10 +28,10 @@ pokemon_hash.each do |pokemon|
   pokemon_data_serialized = URI.open(pokemon_url).read
   pokemon_data = JSON.parse(pokemon_data_serialized)
 
+  # Fetching Pokemon images
   pokemon_name = pokemon_data["name"]
-  pokemon_image = pokemon_data["sprites"]["other"]["dream_world"]["front_default"]
-  pokemon_image_option = pokemon_data["sprites"]["other"]["official-artwork"]["front_default"]
-  # pokemon_image_option_2 = description["sprites"]["other"]["home"]["front_shiny"] # Option for a third image
+  pokemon_image_url = pokemon_data["sprites"]["other"]["dream_world"]["front_default"]
+  pokemon_image2_url = pokemon_data["sprites"]["other"]["official-artwork"]["front_default"]
 
   # Fetching Pokemon description
   pokemon_species_url = "https://pokeapi.co/api/v2/pokemon-species/#{pokemon_name}"
@@ -40,14 +43,19 @@ pokemon_hash.each do |pokemon|
   random_price = rand(100..200).to_f
 
   # Create Pokemon record
-  Pokemon.create!(
+  pokemon = Pokemon.new(
     user: user1,
     name: pokemon_name.capitalize,
     overview: pokemon_description,
-    photo_url: pokemon_image,
-    photo2_url: pokemon_image_option,
     price: random_price
   )
 
-  # puts "Created Pokemon: #{pokemon_name.capitalize}"
+  pokemon_image_file = URI.open(pokemon_image_url)
+  pokemon.photos.attach(io: pokemon_image_file, filename: "#{pokemon_name}_image1.png", content_type: 'image/png')
+
+  pokemon_image_2_file = URI.open(pokemon_image2_url)
+  pokemon.photos.attach(io: pokemon_image_2_file, filename: "#{pokemon_name}_image2.png", content_type: 'image/png')
+
+  pokemon.save!
+  puts "Created Pokemon: #{pokemon_name.capitalize}"
 end
