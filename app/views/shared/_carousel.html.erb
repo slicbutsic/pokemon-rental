@@ -8,16 +8,13 @@
       </div>
       <div class="carousel-inner">
 
-        <div class="carousel-item active">
-          <%= cl_image_tag("https://res.cloudinary.com/dzwrjb71e/image/upload/v1720585313/l8koth1wzqaflyjxswsn.jpg", class: "d-block w-100", crop: :fill)  %>
-        </div>
-        <div class="carousel-item">
-          <%= cl_image_tag("https://res.cloudinary.com/dzwrjb71e/image/upload/v1720591020/xizyrfvjfn58x5ugdqyi.jpg", class: "d-block w-100", crop: :fill)  %>
-        </div>
-        <div class="carousel-item">
-          <%= cl_image_tag("https://res.cloudinary.com/dzwrjb71e/image/upload/v1720585410/geqs3omxsbyrpvgwvvpq.jpg", class: "d-block w-100", crop: :fill)  %>
-        </div>
-        <%# end %>
+        <% if @pokemon.photos.present?%>
+          <% @pokemon.photos.each do |photo| %>
+          <div class="carousel-item active">
+            <%= cl_image_tag photo.key, height: 480, width: 800, crop: :fit%>
+          </div>
+          <% end %>
+        <% end %>
 
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
