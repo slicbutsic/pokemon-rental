@@ -19,8 +19,8 @@ class PokemonsController < ApplicationController
   def create
     @pokemon = Pokemon.new(pokemon_params)
 
-    if @pokemon.save
-      redirect_to @pokemon
+    if @pokemon.save!
+      redirect_to root_path
     else
       render 'new'
     end
@@ -30,7 +30,7 @@ class PokemonsController < ApplicationController
     @pokemon = Pokemon.find(params[:id])
 
     if @pokemon.update(pokemon_params)
-      redirect_to @pokemon
+      redirect_to pokemon_path(@pokemon)
     else
       render :edit
     end
@@ -46,7 +46,7 @@ class PokemonsController < ApplicationController
   private
 
   def pokemon_params
-    params.require(:pokemon).permit(:name, :overview, :photo_url)
+    params.require(:pokemon).permit(:name, :overview, :user_id, :price, photos: [])
   end
 
 end

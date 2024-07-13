@@ -1,0 +1,13 @@
+<div>
+  <%= simple_form_for(@pokemon) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :overview %>
+    <% @pokemon.photos.each do |photo| %>
+      <%= cl_image_tag photo.key %>
+    <% end %>
+    <%= f.file_field :photos, data: {placeholder: @pokemon.photos} %>
+    <%= f.association :user %>
+    <%= f.input :price %>
+    <%= f.submit %>
+  <% end %>
+</div>
