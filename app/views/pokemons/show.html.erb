@@ -23,8 +23,14 @@
     <div class="col-4">
       <div class="price-card mt-auto" style="border: 1px solid rgb(221, 221, 221); border-radius: 12px; padding: 24px; box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px; width: 100%">
         <h2>Price</h2>
-        <span>$20 AUD</span>
+        <div>
+          <p style="text-align: right; padding-right: 30px">$20.00 AUD</p>
+
+        </div>
         <div class="d-grid gap-2">
+          <button style="width: 100%; background-color: rgba(255,209,1,255);", class="btn mt-3">
+            <%= link_to "BOOK", new_pokemon_booking_path(@pokemon) %>
+          </button>
           <%#= render "shared/form" %>
         </div>
       </div>
