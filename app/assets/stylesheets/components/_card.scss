@@ -1,8 +1,22 @@
 .card {
   width: 250px;
-  border-radius: 0 0 5% 5%;
+  border-radius: 2%;
 }
 
 .card-img-top {
   height: 200px;
+}
+
+.card-body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pokemon-name {
+  font-weight: bold;
+  font-size: 0.9vw;;
+}
+
+.pokemon-price {
+  font-size: 0.9vw;
 }
