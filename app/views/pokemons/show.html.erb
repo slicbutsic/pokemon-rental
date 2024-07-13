@@ -1,14 +1,13 @@
 <div class="container mt-3">
   <div class="d-flex align-items-center justify-content-center mt-3 mb-4">
     <h1 class="m-0"><%= @pokemon.name %></h1>
-    <% #if @pokemon.user_id ===?  %>
+    <% if @pokemon.user === current_user %>
     <div>
       <%= link_to pokemon_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, style: "color: black;" do %>
       <i class="fa-solid fa-trash mx-3"></i>
       <% end %>
     </div>
-    <%# else %>
-    <%# end %>
+    <% end %>
   </div>
 
   <%= render "shared/carousel" %>
