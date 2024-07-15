@@ -10,9 +10,9 @@
 
         <% if @pokemon.photos.present?%>
           <% @pokemon.photos.each do |photo| %>
-          <div class="carousel-item active">
-            <%= cl_image_tag photo.key, height: 480, width: 800, crop: :fit%>
-          </div>
+            <div class="carousel-item active">
+              <%= cl_image_tag photo.key, height: 480, width: 800, crop: :fit%>
+            </div>
           <% end %>
         <% end %>
 
