@@ -14,8 +14,13 @@
 
   <div class="row d-flex">
     <div class="col-8">
-      <div style="border-bottom: 1px solid rgb(221, 221, 221); padding-top: 24px; padding-bottom: 24px;">
-        <p>★ 23 reviews</p>
+      <div style="padding-top: 24px; padding-bottom: 24px;">
+        <div class="d-flex align-items-center">
+          <i class="nes-icon is-medium star mr-3"></i>
+          <div><p class="m-0"> 23 reviews</p></div>
+
+        </div>
+
         <p><%= @pokemon.overview %></p>
       </div>
     </div>
@@ -28,7 +33,7 @@
 
         </div>
         <div class="d-grid gap-2">
-          <button style="width: 100%; background-color: rgba(255,209,1,255);", class="btn mt-3">
+          <button type="button" class="nes-btn is-warning">
             <%= link_to "BOOK", new_pokemon_booking_path(@pokemon) %>
           </button>
           <%#= render "shared/form" %>

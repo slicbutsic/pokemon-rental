@@ -1,6 +1,7 @@
 <div class="album py-5 bg-light">
   <div class="container">
     <%= button_to "Add New", new_pokemon_path, method: :get, class: "btn btn-warning mb-3", style: "background-color: #ffd101"%>
+
     <div class="row justify-content-center">
       <% @pokemons.each do |pokemon| %>
         <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-center">

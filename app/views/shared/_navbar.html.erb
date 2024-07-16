@@ -1,7 +1,7 @@
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
       <div class="container-fluid">
-        <%= link_to "#", class: "navbar-brand" do %>
-          <%= cl_image_tag("https://res.cloudinary.com/dzwrjb71e/image/upload/v1720569905/twr0etpycztwdtzomtfu.webp", width: 40, height: 30, crop: :fill)  %>
+        <%= link_to "/", class: "navbar-brand" do %>
+          <%= image_tag("pokemon_photo_2.webp", width: 40, height: 30, crop: :fill)  %>
         <% end %>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,9 +19,9 @@
               </li>
                 <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
               <li class="nav-item dropdown">
-                <%= cl_image_tag ("https://res.cloudinary.com/dzwrjb71e/image/upload/v1720571869/icnn6sgkbj6webephy7o.jpg"), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <%= image_tag ("pokemon_photo_1"), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <%= link_to "My list", "#", class: "dropdown-item" %>
+                  <%= link_to "My list", pokemons_path, class: "dropdown-item" %>
                   <%= link_to "Cart", "#", class: "dropdown-item" %>
                 </div>
               </li>

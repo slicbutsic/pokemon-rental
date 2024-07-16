@@ -40,7 +40,7 @@ pokemon_hash.each do |pokemon|
 
   pokemon_description = pokemon_species_data["flavor_text_entries"].find { |entry| entry["language"]["name"] == "en" }["flavor_text"]
   # Generating random price
-  random_price = rand(100..200).to_f
+  random_price = rand(100..200)
 
   # Create Pokemon record
   pokemon = Pokemon.new(
