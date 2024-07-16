@@ -10,3 +10,34 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+
+.search-bar {
+  padding-right: 3px;
+  border-radius: 30px;
+  width: 25vw;
+}
+
+.btn {
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.btn i {
+  color: black;
+}
+
+@media (max-width: 768px) {
+
+  .search-bar {
+    width: 50vw;
+  }
+
+  .btn {
+    right: 5px;
+  }
+}
