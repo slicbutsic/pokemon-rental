@@ -8,13 +8,17 @@
       </div>
       <div class="carousel-inner">
 
-        <% if @pokemon.photos.present?%>
-          <% @pokemon.photos.each do |photo| %>
-            <div class="carousel-item active">
-              <%= cl_image_tag photo.key, height: 480, width: 800, crop: :fit%>
-            </div>
-          <% end %>
-        <% end %>
+    <% if @pokemon.photos.present? %>
+      <div class="carousel-item active">
+        <%= cl_image_tag @pokemon.photos.first.key, height: 480, width: 800, crop: :fit, class: "text-center" %>
+      </div>
+      <% @pokemon.photos[1..].each do |photo| %>
+        <div class="carousel-item">
+          <%= cl_image_tag photo.key, height: 480, width: 800, crop: :fit, class: "text-center" %>
+        </div>
+      <% end %>
+    <% end %>
+
 
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
