@@ -26,12 +26,12 @@
   <body>
     <%= render "shared/flashes" %>
     <%= render "shared/navbar" %>
-        <% if user_signed_in? %>
-      <h6 class="my-0 py-2 px-3 bg-light">Hi <%= current_user.email %> 🎈</h6>
-    <% end %>
-    <%= yield %>
 
-    <%= render "shared/footer" %>
-
+    <div class="content">
+      <%= yield %>
+    </div>
+    <div class="footer">
+      <%= render "shared/footer" %>
+    </div>
   </body>
 </html>
