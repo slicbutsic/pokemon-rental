@@ -1,0 +1,9 @@
+<div class="container">
+  <h3 class="press-start-2p-regular my-5">New Review</h3>
+    <%= simple_form_for([@pokemon, @review]) do |f| %>
+      <div class="nes-field">
+      <%= f.input :content, input_html: { class: "nes-input mt-3" } %>
+      <%= f.submit "Submit review", class: "nes-btn is-warning my-4" %>
+    <% end %>
+  </div>
+</div>
