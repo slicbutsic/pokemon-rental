@@ -53,7 +53,7 @@
             <% @pokemon.reviews.each do |review| %>
             <li class="list-group-item mt-3">
               <div class="review-card">
-                <%= @pokemon.user.name %>
+                <%= review.user.name || "Pokemon trainer" %>
                 <%= review.content %>
               </div>
             </li>
