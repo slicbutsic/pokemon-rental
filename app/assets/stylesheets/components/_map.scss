@@ -1,0 +1,24 @@
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+}
+
+.poke-ball {
+  height: 25px;
+  width: 25px;
+}
+
+.poke-ball:hover {
+  height: 30px;
+  width: 30px;
+}
+
+#map {
+  position: sticky;
+  top: 0;
+}
+
