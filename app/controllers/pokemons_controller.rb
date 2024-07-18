@@ -3,13 +3,36 @@ class PokemonsController < ApplicationController
   def index
     if params[:query].present?
       @pokemons = Pokemon.search_pokemon(params[:query])
+      @markers = @pokemons.geocoded.map do |pokemon|
+        {
+          lat: pokemon.latitude,
+          lng: pokemon.longitude,
+          infoWindow: render_to_string(partial: "popup", locals: { pokemon: pokemon }),
+          image_url: helpers.asset_url('pokeball.png')
+        }
+      end
     else
       @pokemons = Pokemon.all
+
+      @markers = @pokemons.geocoded.map do |pokemon|
+        {
+          lat: pokemon.latitude,
+          lng: pokemon.longitude,
+          infoWindow: render_to_string(partial: "popup", locals: { pokemon: pokemon }),
+          image_url: helpers.asset_url('pokeball.png')
+        }
+      end
     end
   end
 
   def show
     @pokemon = Pokemon.find(params[:id])
+    @markers = [{
+      lat: @pokemon.latitude,
+      lng: @pokemon.longitude,
+      infoWindow: render_to_string(partial: "popup", locals: { pokemon: @pokemon }),
+      image_url: helpers.asset_url('pokeball.png')
+    }]
   end
 
   def new

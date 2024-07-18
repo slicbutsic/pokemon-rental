@@ -1,23 +1,37 @@
-<div class="album py-5 bg-light">
-  <div class="container">
-    <%= button_to "Add New", new_pokemon_path, method: :get, class: "btn btn-warning mb-3", style: "background-color: #ffd101"%>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <%= button_to "Add New", new_pokemon_path, method: :get, class: "btn btn-warning mb-3", style: "background-color: #ffd101"%>
 
-    <div class="row justify-content-center">
-      <% @pokemons.each do |pokemon| %>
-        <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-center">
-          <%= link_to pokemon_path(pokemon), style: "text-decoration: none;" do %>
-            <div class="card mb-4 shadow-sm">
-              <% if pokemon.photos.present?%>
-                <%= cl_image_tag pokemon.photos.first.key, height: 200, width: 248%>
-              <% end %>
-              <div class="card-body">
-                <span class="pokemon-name"><%= pokemon.name %></span>
-                <span class="pokemon-price">$<%= pokemon.price %> AUD</span>
+          <div class="row">
+            <% @pokemons.each do |pokemon| %>
+              <div class="col-sm-12 col-md-6 col-lg-4 d-flex align-items-center">
+                <%= link_to pokemon_path(pokemon), style: "text-decoration: none;" do %>
+                  <div class="card mb-4 shadow-sm">
+                    <% if pokemon.photos.present?%>
+                      <%= cl_image_tag pokemon.photos.first.key, height: 200, width: 248%>
+                    <% end %>
+                    <div class="card-body">
+                      <span class="pokemon-name"><%= pokemon.name %></span>
+                      <span class="pokemon-price">$<%= pokemon.price %> AUD</span>
+                    </div>
+                  </div>
+                <% end %>
               </div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
-      <% end %>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div data-controller="map"
+        id="map"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+        data-map-markers-value="<%= @markers.to_json %>"
+        style="width: 100%; height: 100vh;">
+      </div>
     </div>
   </div>
 </div>

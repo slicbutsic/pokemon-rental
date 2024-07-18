@@ -1,0 +1,7 @@
+<div class="card-product">
+  <%= cl_image_tag pokemon.photos.first.key, height: 100, width: 124%>
+  <div class="card-product-infos">
+    <h6 class="mt-2" ><strong><%= pokemon.name %></strong></h6>
+    <p class="mb-0">$<%= pokemon.price %> AUD</p>
+  </div>
+</div>
