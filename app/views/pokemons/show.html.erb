@@ -1,15 +1,17 @@
+<div class="container">
+  <div class="row justify-content-center">
 
-<div class="container mt-3">
-  <div class="d-flex align-items-center justify-content-center mt-3 mb-4">
-    <h1 class="m-0"><%= @pokemon.name %></h1>
-    <% if @pokemon.user === current_user %>
-    <div class="d-flex align-items-center">
-      <%= link_to edit_pokemon_path(@pokemon), class: "ms-5", style: "color: black;" do%>
-      <i class="fa-solid fa-pen"></i>
-      <% end %>
-      <%= link_to pokemon_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, style: "color: black;" do %>
-      <i class="fa-solid fa-trash mx-3"></i>
-
+    <div class="d-flex align-items-center justify-content-center mt-3 mb-4">
+      <h1 class="mt-4 press-start-2p-regular"><%= @pokemon.name %></h1>
+      <% if @pokemon.user === current_user %>
+      <div>
+        <%= link_to edit_pokemon_path(@pokemon), class: "ms-4 mt-4", style: "color: black;" do%>
+        <i class="fa-solid fa-pen"></i>
+        <%end%>
+        <%= link_to pokemon_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, style: "color: black;" do %>
+        <i class="fa-solid fa-trash mx-3"></i>
+        <% end %>
+      </div>
       <% end %>
     </div>
 
@@ -54,7 +56,7 @@
             <% @pokemon.reviews.each do |review| %>
             <li class="list-group-item mt-3">
               <div class="review-card">
-                <%= @pokemon.user.name %>
+                <%= review.user.name || "Pokemon trainer" %>
                 <%= review.content %>
               </div>
             </li>
@@ -68,10 +70,8 @@
           <div class="nes-container is-rounded mt-auto">
             <h3 class="press-start-2p-regular mb-5">Price</h3>
               <p style="text-align: right; padding-right: 30px">$ <%= @pokemon.price %> AUD</p>
-            <div class="d-grid gap-2">
-               <button type="button" class="d-none">
-            <%= button_to "BOOK", new_pokemon_booking_path(@pokemon), method: :get, class: "nes-btn is-warning" %>
-          </button>
+            <div class="d-grid">
+                <%= button_to "BOOK", new_pokemon_booking_path(@pokemon), method: :get, class: "nes-btn is-warning w-100" %>
             </div>
           </div>
         </div>
