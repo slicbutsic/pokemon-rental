@@ -1,5 +1,6 @@
 class Pokemon < ApplicationRecord
   belongs_to :user
+  has_many :reviews, dependent: :destroy
   has_many_attached :photos
 
   include PgSearch::Model
