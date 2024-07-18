@@ -9,6 +9,8 @@ Pokemon.destroy_all
 
 puts "Creating user...."
 user1 = User.create(email: "user@admin.com", password: "123456", password_confirmation: "123456")
+user2 = User.create(email: "user@pokemon.com", password: "123456", password_confirmation: "123456")
+users = [user1, user2]
 
 puts "Creating pokemons...."
 
@@ -44,7 +46,7 @@ pokemon_hash.each do |pokemon|
 
   # Create Pokemon record
   pokemon = Pokemon.new(
-    user: user1,
+    user: users.sample,
     name: pokemon_name.capitalize,
     overview: pokemon_description,
     price: random_price

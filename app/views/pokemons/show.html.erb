@@ -2,7 +2,10 @@
   <div class="d-flex align-items-center justify-content-center mt-3 mb-4">
     <h1 class="m-0"><%= @pokemon.name %></h1>
     <% if @pokemon.user === current_user %>
-    <div>
+    <div class="d-flex align-items-center">
+      <%= link_to edit_pokemon_path(@pokemon), class: "ms-5", style: "color: black;" do%>
+      <i class="fa-solid fa-pen"></i>
+      <% end %>
       <%= link_to pokemon_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, style: "color: black;" do %>
       <i class="fa-solid fa-trash mx-3"></i>
       <% end %>
@@ -33,8 +36,8 @@
 
         </div>
         <div class="d-grid gap-2">
-          <button type="button" class="nes-btn is-warning">
-            <%= link_to "BOOK", new_pokemon_booking_path(@pokemon) %>
+          <button type="button" class="d-none">
+            <%= button_to "BOOK", new_pokemon_booking_path(@pokemon), method: :get, class: "nes-btn is-warning" %>
           </button>
           <%#= render "shared/form" %>
         </div>
