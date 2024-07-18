@@ -8,7 +8,8 @@ class ReviewsController < ApplicationController
     @pokemon = Pokemon.find(params[:pokemon_id])
     @review = Review.new(review_params)
     @review.pokemon = @pokemon
-    @review.save!
+    @review.user = current_user
+    @review.save
     redirect_to pokemon_path(@pokemon)
   end
 

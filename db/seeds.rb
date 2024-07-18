@@ -18,7 +18,6 @@ users = [user1, user2, user3, user4]
 
 random_user = users.sample
 
-
 puts "Creating pokemons...."
 
 # Querying for all pokemons
