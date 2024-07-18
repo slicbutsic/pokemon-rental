@@ -1,14 +1,15 @@
-<div class="container">
-  <div class="row justify-content-center">
 
-    <div class="d-flex align-items-center justify-content-center mt-3 mb-4">
-      <h1 class="mt-4 press-start-2p-regular"><%= @pokemon.name %></h1>
-      <% if @pokemon.user === current_user %>
-      <div>
-        <%= link_to pokemon_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, style: "color: black;" do %>
-        <i class="fa-solid fa-trash mx-3"></i>
-        <% end %>
-      </div>
+<div class="container mt-3">
+  <div class="d-flex align-items-center justify-content-center mt-3 mb-4">
+    <h1 class="m-0"><%= @pokemon.name %></h1>
+    <% if @pokemon.user === current_user %>
+    <div class="d-flex align-items-center">
+      <%= link_to edit_pokemon_path(@pokemon), class: "ms-5", style: "color: black;" do%>
+      <i class="fa-solid fa-pen"></i>
+      <% end %>
+      <%= link_to pokemon_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, style: "color: black;" do %>
+      <i class="fa-solid fa-trash mx-3"></i>
+
       <% end %>
     </div>
 
@@ -68,9 +69,9 @@
             <h3 class="press-start-2p-regular mb-5">Price</h3>
               <p style="text-align: right; padding-right: 30px">$ <%= @pokemon.price %> AUD</p>
             <div class="d-grid gap-2">
-              <button type="button" class="nes-btn is-warning">
-                <%= link_to "BOOK", new_pokemon_booking_path(@pokemon) %>
-              </button>
+               <button type="button" class="d-none">
+            <%= button_to "BOOK", new_pokemon_booking_path(@pokemon), method: :get, class: "nes-btn is-warning" %>
+          </button>
             </div>
           </div>
         </div>
