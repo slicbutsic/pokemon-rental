@@ -8,6 +8,7 @@ puts "Destroying all pokemons..."
 Pokemon.destroy_all
 
 puts "Creating user...."
+
 user1 = User.create(email: "user@admin.com", name: "John", password: "123456", password_confirmation: "123456")
 user2 = User.create(email: "user2@admin.com", name: "Smith", password: "123456", password_confirmation: "123456")
 user3 = User.create(email: "user3@admin.com", name: "Mary", password: "123456", password_confirmation: "123456")
@@ -16,6 +17,7 @@ user4 = User.create(email: "user4@admin.com", name: "Yannan", password: "123456"
 users = [user1, user2, user3, user4]
 
 random_user = users.sample
+
 
 puts "Creating pokemons...."
 
