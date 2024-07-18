@@ -8,8 +8,8 @@ puts "Destroying all pokemons..."
 Pokemon.destroy_all
 
 puts "Creating user...."
-user1 = User.create(email: "user@admin.com", password: "123456", password_confirmation: "123456")
-user2 = User.create(email: "user@pokemon.com", password: "123456", password_confirmation: "123456")
+user1 = User.create(email: "user@admin.com", name: "Emily", password: "123456", password_confirmation: "123456")
+user2 = User.create(email: "user@pokemon.com", name: "John", password: "123456", password_confirmation: "123456")
 users = [user1, user2]
 
 puts "Creating pokemons...."
