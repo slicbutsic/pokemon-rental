@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def new
     @booking = Booking.new
     @pokemon = Pokemon.find(params[:pokemon_id])
@@ -44,4 +45,11 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
   end
+
+  def authenticate_user!
+    unless user_signed_in?
+      redirect_to new_user_session_path, alert: 'You need to log in to make a booking.'
+    end
+  end
+
 end
