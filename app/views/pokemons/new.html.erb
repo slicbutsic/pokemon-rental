@@ -1,6 +1,7 @@
 <div class="container">
   <%=simple_form_for(@pokemon) do |f| %>
     <%= f.input :name%>
+    <%= f.input :address%>
     <%= f.input :overview%>
     <%= f.input :photos, as: :file, input_html:{multiple: true} %>
     <%= f.association :user%>
