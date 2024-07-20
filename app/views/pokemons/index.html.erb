@@ -3,6 +3,11 @@
     <div class="col-lg-8">
       <div class="album py-5">
         <div class="container">
+            <% if user_signed_in? %>
+            <div class="d-flex justify-content-end">
+              <%= button_to "Add New", new_pokemon_path, method: :get, class: "btn btn-warning mb-3 text-align-right", style: "background-color: #ffd101"%>
+            </div>
+          <% end %>
           <div class="row">
             <%= render "shared/pokemon_card" %>
           </div>
