@@ -13,8 +13,12 @@ user1 = User.create(email: "user@admin.com", name: "John", password: "123456", p
 user2 = User.create(email: "user2@admin.com", name: "Smith", password: "123456", password_confirmation: "123456")
 user3 = User.create(email: "user3@admin.com", name: "Mary", password: "123456", password_confirmation: "123456")
 user4 = User.create(email: "user4@admin.com", name: "Yannan", password: "123456", password_confirmation: "123456")
+user5 = User.create(email: "user5@admin.com", name: "Riqui", password: "123456", password_confirmation: "123456")
+user6 = User.create(email: "user6@admin.com", name: "Lucas", password: "123456", password_confirmation: "123456")
+user7 = User.create(email: "user7@admin.com", name: "Josh", password: "123456", password_confirmation: "123456")
+user8 = User.create(email: "user8@admin.com", name: "Blaze", password: "123456", password_confirmation: "123456")
 
-users = [user1, user2, user3, user4]
+users = [user1, user2, user3, user4, user5, user6, user7, user8]
 
 random_user = users.sample
 

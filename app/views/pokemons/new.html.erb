@@ -5,6 +5,7 @@
       <%=simple_form_for(@pokemon) do |f| %>
         <%= f.input :name, input_html: { class: "nes-input mt-3" } %>
         <%= f.input :overview, input_html: { class: "nes-input mt-3" } %>
+          <%= f.input :address, input_html: { class: "nes-input mt-3" } %>
         <%= f.input :photos, as: :file, input_html:{multiple: true, class: "nes-input mt-3"} %>
         <div class="nes-select">
           <%= f.association :user, as: :select, input_html: { required: true } %>
@@ -15,6 +16,4 @@
   </div>
 </div>
 
-<div class="container">
 
-</div>
