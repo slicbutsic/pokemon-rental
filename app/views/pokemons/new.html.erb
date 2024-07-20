@@ -1,10 +1,20 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h2 class="text-center press-start-2p-regular">New Pokemon </h2>
+      <%=simple_form_for(@pokemon) do |f| %>
+        <%= f.input :name, input_html: { class: "nes-input mt-3" } %>
+        <%= f.input :overview, input_html: { class: "nes-input mt-3" } %>
+        <%= f.input :photos, as: :file, input_html:{multiple: true, class: "nes-input mt-3"} %>
+        <div class="nes-select">
+          <%= f.association :user, as: :select, input_html: { required: true } %>
+        </div>
+        <%= f.input :price, input_html: { class: "nes-input mt-3" } %>
+        <%= f.submit "Submit", class: "nes-btn is-warning my-4 w-5" %>
+      <%end%>    </div>
+  </div>
+</div>
+
 <div class="container">
-  <%=simple_form_for(@pokemon) do |f| %>
-    <%= f.input :name%>
-    <%= f.input :overview%>
-    <%= f.input :photos, as: :file, input_html:{multiple: true} %>
-    <%= f.association :user%>
-    <%= f.input :price%>
-    <%= f.submit%>
-  <%end%>
+
 </div>
