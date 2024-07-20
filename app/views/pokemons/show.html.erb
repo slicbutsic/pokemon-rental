@@ -32,9 +32,9 @@
           </div>
           <div class="mt-3 border-bottom border-3">
             <p class="lh-lg" style="text-align: justify;">
-              <% 8.times do %>
-              <%= @pokemon.overview %>
-              <% end %>
+              <% pokemon_overview = @pokemon.overview %>
+              <% overview_capitalized = pokemon_overview.split('. ').map { |sentence| sentence.capitalize }.join('. ')  %>
+              <%= overview_capitalized %>
             </p>
           </div>
 
