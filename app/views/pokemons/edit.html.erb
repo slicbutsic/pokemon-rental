@@ -8,13 +8,16 @@
           <% @pokemon.photos.each do |photo| %>
             <%= cl_image_tag photo.key, height: 200, width: 200, fill: :cover%>
           <% end %>
+
+          <% @pokemon.photos.each do |photo| %>
+            <%= f.hidden_field :photos, multiple: true, value: photo.signed_id %>
+          <% end %>
+
           <%= f.input :photos, as: :file, input_html:{multiple: true} %>
-          <%= f.association :user %>
           <%= f.input :price, class: "nes-btn is-warning my-4"  %>
           <%= f.submit "Submit", class: "nes-btn is-warning my-4 w-100" %>
         </div>
       <% end %>
     </div>
   </div>
-</div>
 </div>
