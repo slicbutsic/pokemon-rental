@@ -73,6 +73,11 @@ class PokemonsController < ApplicationController
     redirect_to pokemons_path, notice: "Pokemon deleted", status: :see_other
   end
 
+  def destroy_image
+    @pokemon = Pokemon.find(params[:id])
+    
+  end
+
   private
 
   def pokemon_params
