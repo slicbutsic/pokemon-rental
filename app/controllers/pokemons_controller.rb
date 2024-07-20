@@ -47,6 +47,7 @@ class PokemonsController < ApplicationController
 
   def create
     @pokemon = Pokemon.new(pokemon_params)
+    @pokemon.user = current_user
 
     if @pokemon.save!
       redirect_to root_path
@@ -75,7 +76,7 @@ class PokemonsController < ApplicationController
   private
 
   def pokemon_params
-    params.require(:pokemon).permit(:name, :overview, :user_id, :price, photos: [])
+    params.require(:pokemon).permit(:name, :overview, :address, :price, photos: [])
   end
 
 end
