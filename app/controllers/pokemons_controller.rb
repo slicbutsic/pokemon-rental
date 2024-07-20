@@ -27,12 +27,14 @@ class PokemonsController < ApplicationController
 
   def show
     @pokemon = Pokemon.find(params[:id])
+    @user = current_user
     @markers = [{
       lat: @pokemon.latitude,
       lng: @pokemon.longitude,
       infoWindow: render_to_string(partial: "popup", locals: { pokemon: @pokemon }),
       image_url: helpers.asset_url('pokeball.png')
     }]
+
   end
 
   def new

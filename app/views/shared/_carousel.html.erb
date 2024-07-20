@@ -1,6 +1,6 @@
   <div class="carousel">
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -17,6 +17,9 @@
           <%= cl_image_tag photo.key, height: 480, width: 800, crop: :mfit %>
         </div>
       <% end %>
+      <div class="carousel-item">
+        <%= cl_image_tag @pokemon.photos.last.key, height: 480, width: 800, crop: :mfit %>
+      </div>
     <% end %>
 
       </div>

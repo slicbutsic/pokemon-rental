@@ -1,0 +1,22 @@
+<% @pokemons.each do |pokemon| %>
+  <div class="col-sm-12 col-md-6 col-lg-4 d-flex align-items-center">
+    <%= link_to pokemon_path(pokemon), style: "text-decoration: none;" do %>
+      <div class="card mb-4 shadow-sm">
+        <% if pokemon.photos.present?%>
+          <%= cl_image_tag pokemon.photos.first.key, height: 200, width: 248%>
+        <% end %>
+        <div class="card-body">
+          <span class="pokemon-name"><%= pokemon.name %></span>
+          <span class="pokemon-price">$<%= pokemon.price %> AUD</span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+<% if user_signed_in? %>
+  <div class="card mx-2 mb-4 shadow-sm d-flex justify-content-center align-items-center">
+    <%= link_to new_pokemon_path do %>
+      <i class="fa-solid fa-plus link-dark"></i>
+    <% end %>
+  </div>
+<% end %>

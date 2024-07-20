@@ -22,7 +22,6 @@ users = [user1, user2, user3, user4, user5, user6, user7, user8]
 
 random_user = users.sample
 
-
 puts "Creating pokemons...."
 
 # Querying for all pokemons
@@ -45,6 +44,7 @@ pokemon_hash.each do |pokemon|
   pokemon_name = pokemon_data["name"]
   pokemon_image_url = pokemon_data["sprites"]["other"]["dream_world"]["front_default"]
   pokemon_image2_url = pokemon_data["sprites"]["other"]["official-artwork"]["front_default"]
+  pokemon_image3_url = pokemon_data["sprites"]["other"]["home"]["front_default"]
 
   # Fetching Pokemon description
   pokemon_species_url = "https://pokeapi.co/api/v2/pokemon-species/#{pokemon_name}"
@@ -163,6 +163,9 @@ pokemon_hash.each do |pokemon|
 
   pokemon_image_2_file = URI.open(pokemon_image2_url)
   pokemon.photos.attach(io: pokemon_image_2_file, filename: "#{pokemon_name}_image2.png", content_type: 'image/png')
+
+  pokemon_image_3_file = URI.open(pokemon_image3_url)
+  pokemon.photos.attach(io: pokemon_image_3_file, filename: "#{pokemon_name}_image3.png", content_type: 'image/png')
 
   pokemon.save!
   puts "Created Pokemon: #{pokemon_name.capitalize}"
