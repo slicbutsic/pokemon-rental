@@ -1,8 +1,10 @@
-<div class="container">
-  <div class="row justify-content-center">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-lg-10 offset-lg-1">
 
-    <div class="d-flex align-items-center justify-content-center mt-3 mb-4">
-      <h1 class="mt-4 press-start-2p-regular"><%= @pokemon.name %></h1>
+    <%# Pokemon name and edit & trash icon %>
+    <div class="d-flex align-items-center justify-content-center mt-3">
+      <h1 class="mt-0 press-start-2p-regular"><%= @pokemon.name %></h1>
       <% if @pokemon.user === current_user %>
       <div>
         <%= link_to edit_pokemon_path(@pokemon), class: "ms-4 mt-4", style: "color: black;" do%>
@@ -15,14 +17,15 @@
       <% end %>
     </div>
 
+    <%# Carousel %>
     <div class="carousel-container">
       <%= render "shared/carousel" %>
     </div>
 
-    <div class="d-flex">
-      <div class="col-8">
+    <%# Description %>
+    <div class="d-flex flex-column flex-md-row">
+      <div class="col-12 col-md-8">
         <div class="py-3 mr-3">
-
           <div class="d-flex align-items-center">
             <i class="nes-icon is-medium heart"></i>
             <div class="px-3 py-2">Description</div>
@@ -35,29 +38,40 @@
             </p>
           </div>
 
-          <div class="d-flex mt-3">
+          <%# Add reviews %>
+          <div class="d-flex flex-sm-row mt-3 align-items-center">
             <i class="nes-icon is-medium heart"></i>
-              <div class="d-flex justify-content-between flex-grow-1 px-3 py-2">
-                <div>
-                  <p class="pl-3">
-                    <%= @pokemon.reviews.count %> reviews
-                  </p>
-                </div>
-                <% if user_signed_in? %>
-                  <div>
-                    <%= link_to "+review", new_pokemon_review_path(@pokemon) %>
-                  </div>
-                <% end %>
+            <div class="d-flex justify-content-between flex-grow-1 px-3 py-2">
+              <div>
+                <p class="mb-0">
+                  <%= @pokemon.reviews.count %> reviews
+                </p>
               </div>
+              <% if user_signed_in? %>
+                <div>
+                  <%= link_to "+review", new_pokemon_review_path(@pokemon) %>
+                </div>
+              <% end %>
+            </div>
           </div>
 
           <%# List reviews %>
-          <ul class="px-5 mx-3">
+          <ul class="list-group w-100">
             <% @pokemon.reviews.each do |review| %>
-            <li class="list-group-item mt-3">
-              <div class="review-card">
-                <%= review.user.name || "Pokemon trainer" %>
-                <%= review.content %>
+            <li class="list-group-item mt-3 d-flex justify-content-between">
+              <div class="review-card d-flex">
+                <strong><%= review.user.name || "Pokemon trainer" %></strong>
+                <p class="mb-0"> - <%= review.content %></p>
+              </div>
+              <div>
+                <% if @pokemon.user === current_user %>
+                  <%= link_to edit_review_path(review), style: "color: black;"  do %>
+                    <i class="fa-solid fa-pen"></i>
+                  <% end %>
+                  <%=link_to review_path(review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, style: "color: black;" do %>
+                    <i class="fa-solid fa-trash mx-3"></i>
+                  <% end %>
+                <% end %>
               </div>
             </li>
             <% end %>
@@ -65,25 +79,23 @@
         </div>
       </div>
 
-      <div class="col-4">
-        <div class="price-card">
-          <div class="nes-container is-rounded mt-auto">
-            <h3 class="press-start-2p-regular mb-5">Price</h3>
-              <p style="text-align: right; padding-right: 30px">$ <%= @pokemon.price %> AUD</p>
-            <div class="d-grid">
-                <%= button_to "BOOK", new_pokemon_booking_path(@pokemon), method: :get, class: "nes-btn is-warning w-100" %>
-            </div>
-          </div>
-        </div>
-
-
+      <%# price_card %>
+      <div class="col-12 col-md-4 mt-3 mt-md-0">
+        <%= render "shared/price_card" %>
       </div>
+
     </div>
+    <div data-controller="map"
+      id="map" class="mt-4"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+      data-map-markers-value="<%= @markers.to_json %>"
+      style="width: 100%; height: 50vh; margin: 20px 0;">
+    </div>
+
   </div>
-  <div data-controller="map"
-    id="map" class ="mt-4"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-    data-map-markers-value="<%= @markers.to_json %>"
-    style="width: 100%; height: 60vh;">
+
+  <%# Map %>
+
+    </div>
   </div>
 </div>

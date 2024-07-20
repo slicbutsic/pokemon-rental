@@ -4,10 +4,10 @@
 }
 
 .carousel {
-  width: 80%;
+  margin: 20px 0;
   height: 480px;
   display: grid;
   place-items: center;  /* Center both horizontally and vertically */
-  height: 100vh;        /* Full viewport height to center vertically */
+  height: 80vh;        /* Full viewport height to center vertically */
   text-align: center;
 }
