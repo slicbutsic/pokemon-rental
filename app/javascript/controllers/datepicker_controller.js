@@ -9,7 +9,8 @@ export default class extends Controller {
     console.log("Inside Stimulus Controller:", bookedDateRanges);
 
     flatpickr(this.element, {
-      dateFormat: "Y-m-d",
+      dateFormat: "d-m-Y",
+      minDate: "today", // Prevents past dates
       disable: [
         function(date) {
           // Check if the date falls within any of the booked date ranges

@@ -5,7 +5,7 @@
       <%= simple_form_for([@pokemon, @review]) do |f| %>
         <div class="nes-field">
           <%= f.input :content, input_html: { class: "nes-input mt-3" } %>
-          <%= f.submit "Submit review", class: "nes-btn is-warning my-4b w-100" %>
+          <%= f.submit "Submit review", class: "nes-btn is-warning my-4b w-100", style: "background-color: #003153; color: white;" %>
         </div>
       <% end %>
     </div>

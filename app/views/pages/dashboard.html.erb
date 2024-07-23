@@ -4,11 +4,11 @@
       <p>My Pokemons</p>
       <div class="row justify-content-center">
         <% current_user.pokemons.each do |pokemon| %>
-          <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-center">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xxl-3 d-flex align-items-center the-cards">
             <%= link_to pokemon_path(pokemon), style: "text-decoration: none;" do %>
               <div class="card mb-4 shadow-sm">
                 <% if pokemon.photos.present?%>
-                  <%= cl_image_tag pokemon.photos.first.key, height: 200, width: 248%>
+                  <%= cl_image_tag pokemon.photos.first.key, height: 200, width: 215%>
                 <% end %>
                 <div class="pokemon-card">
                   <span class="pokemon-name"><%= pokemon.name %></span>
