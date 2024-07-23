@@ -1,12 +1,3 @@
-// body {
-//   margin: 0;
-// }
-
-.logo {
-  height: 4vh;
-  width: 10vw;
-}
-
 .navbar {
   height: 55px;
 }
@@ -21,7 +12,7 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 55px;
+  width: 70px;
 }
 
 .sticky {
@@ -64,5 +55,25 @@
 
   .btn {
     right: 5px;
+  }
+}
+
+@media (max-width: 575px) {
+
+  .entire-search-bar {
+    display: none;
+  }
+
+  .nav-item.dropdown,
+  .nav-item {
+    display: block; /* Ensure visibility on small screens */
+  }
+
+  .btn {
+    right: 4px;
+  }
+
+  .navbar {
+    height: 60px;
   }
 }
