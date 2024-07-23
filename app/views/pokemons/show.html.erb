@@ -54,17 +54,17 @@
                 </div>
                 <% if user_signed_in? %>
                   <div  class="m-4" >
-                    <%= link_to "Write a review", new_pokemon_review_path(@pokemon), class: "btn btn-warning mt-3 text-align-right", style: "background-color: #003153; color: white;" %>
+                    <%= link_to "Write a review", new_pokemon_review_path(@pokemon), class: "btn btn-warning mt-3 text-align-right ", style: "background-color: #003153; color: white;" %>
                   </div>
                 <% end %>
               </div>
             </div>
           <% else %>
             <% if user_signed_in? %>
-                  <div class="m-4" >
-                    <%= link_to "Write a review", new_pokemon_review_path(@pokemon), class: "btn btn-warning mt-3 text-align-right", style: "background-color: #003153; color: white;" %>
-                  </div>
-                <% end %>
+              <div class="text-center mt-5" >
+                <%= link_to "Write a review", new_pokemon_review_path(@pokemon), class: "btn btn-warning mt-3 text-align-right ", style: "background-color: #003153; color: white;" %>
+              </div>
+            <% end %>
           <% end %>
 
           <%# List reviews %>
