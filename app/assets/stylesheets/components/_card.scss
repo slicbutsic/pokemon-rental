@@ -1,5 +1,6 @@
+
 .card {
-  width: 250px;
+  width: 220px;
   border-radius: 2%;
   margin-bottom: 1rem;
 }
@@ -23,10 +24,33 @@
 .pokemon-name {
   font-weight: bold;
   font-size: 0.80vw;
-
 }
 
 .pokemon-price {
   font-size: 0.80vw;
   margin-right: 14px;
+}
+
+@media (max-width: 575px) {
+  .the-cards {
+    justify-content: center;
+  }
+
+  .card {
+    width: 100%; /* Ensure the card takes full width of its container */
+  }
+}
+
+
+@media (min-width: 1500px) {
+  .card {
+    width: 260px;
+    border-radius: 2%;
+    margin-bottom: 1rem;
+  }
+
+  .big-screen-pokemon-image {
+    height: 200px;
+    width: 230px;
+  }
 }

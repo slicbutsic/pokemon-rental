@@ -3,9 +3,9 @@
     <div class="col-lg-8">
       <div class="album py-5">
         <div class="container">
-            <% if user_signed_in? %>
-            <div class="d-flex justify-content-end">
-              <%= button_to "Add New", new_pokemon_path, method: :get, class: "btn btn-warning mb-3 text-align-right", style: "background-color: #003153; color: white;"%>
+          <% if user_signed_in? %>
+            <div class="d-flex justify-content-start mb-3">
+              <%= button_to "Add New", new_pokemon_path, method: :get, class: "btn btn-warning text-align-right", style: "background-color: #003153; color: white;"%>
             </div>
           <% end %>
           <div class="row">
