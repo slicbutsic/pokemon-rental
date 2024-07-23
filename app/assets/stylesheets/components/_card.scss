@@ -1,6 +1,7 @@
 .card {
   width: 250px;
   border-radius: 2%;
+  margin-bottom: 1rem;
 }
 
 .card-img-top {
@@ -12,12 +13,19 @@
   justify-content: space-between;
 }
 
+.pokemon-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .pokemon-name {
   font-weight: bold;
-  font-size: 0.60vw;
-
+  font-size: 1vw;
 }
 
 .pokemon-price {
-  font-size: 0.60vw;
+  font-size: 1vw;
+  margin-right: 14px;
 }

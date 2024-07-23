@@ -1,36 +1,54 @@
 <div class="container">
   <div class="my-5">
-    <p>My Pokemons</p>
-    <div class="row justify-content-center">
-      <% current_user.pokemons.each do |pokemon| %>
-        <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-center">
-          <%= link_to pokemon_path(pokemon), style: "text-decoration: none;" do %>
-            <div class="card mb-4 shadow-sm">
-              <% if pokemon.photos.present?%>
-                <%= cl_image_tag pokemon.photos.first.key, height: 200, width: 248%>
-              <% end %>
-              <div class="card-body">
-                <span class="pokemon-name"><%= pokemon.name %></span>
-                <span class="pokemon-price">$<%= pokemon.price %> AUD</span>
+    <% if current_user.pokemons.present? %>
+      <p>My Pokemons</p>
+      <div class="row justify-content-center">
+        <% current_user.pokemons.each do |pokemon| %>
+          <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-center">
+            <%= link_to pokemon_path(pokemon), style: "text-decoration: none;" do %>
+              <div class="card mb-4 shadow-sm">
+                <% if pokemon.photos.present?%>
+                  <%= cl_image_tag pokemon.photos.first.key, height: 200, width: 248%>
+                <% end %>
+                <div class="pokemon-card">
+                  <span class="pokemon-name"><%= pokemon.name %></span>
+                  <span class="pokemon-price">$<%= pokemon.price %> AUD</span>
+                </div>
               </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p>You have no pokemons yet.</p>
+  <% end %>
   </div>
 
   <div class="my-5">
-    <p>My Bookings</p>
-    <% current_user.bookings.each do |booking| %>
-      <div class="my-3 d-flex align-items-center justify-content-between">
-      Pokemon: <%= booking.pokemon.name%> Date: <%= booking.start_date%> to <%= booking.end_date%>
-      <div class="d-flex mx-4">
-        <%=link_to "Edit", edit_booking_path(booking), class: "me-3"%>
-        <%=link_to "Delete", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-      </div>
-      </div>
-    <%end%>
+    <% if current_user.bookings.present? %>
+      <p>My Bookings</p>
+      <% current_user.bookings.each do |booking| %>
+        <div class="my-3 d-flex align-items-center justify-content-between">
+        Pokemon: <%= booking.pokemon.name%>. <br>
+        Pick up: <%= booking.start_date.strftime("%d %B %Y")%> <br>
+        Drop off: <%= booking.end_date.strftime("%d %B %Y")%>. <br>
+        <% duration = (booking.end_date - booking.start_date).to_i %>
+        <% price = @pokemon_price[0] * duration %>
+        Duration: <%= duration %> days. <br>
+        Total amount: $ <%= price %> AUD.
+        <div class="d-flex mx-4">
+          <%= link_to edit_booking_path(booking), class: "me-3" do %>
+            <i class="fa-solid fa-pen" style="color: black;"></i>
+          <% end %>
+          <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "me-3" do %>
+            <i class="fa-solid fa-trash" style="color: black;"></i>
+          <% end %>
+        </div>
+        </div>
+      <%end%>
+    <% else %>
+      <p>You have no bookings yet.</p>
+    <% end %>
   </div>
 
 </div>

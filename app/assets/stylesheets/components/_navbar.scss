@@ -2,9 +2,18 @@
 //   margin: 0;
 // }
 
+.logo {
+  height: 4vh;
+  width: 10vw;
+}
+
+.navbar {
+  height: 55px;
+}
+
 .navbar-lewagon {
   justify-content: space-between;
-  background: rgba(255,209,1,255);
+  background: #003153;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -18,14 +27,20 @@
 .sticky {
   position: fixed;
   top: 0px;
-  z-index: 1000; /* Ensures it stays above other content */
+  z-index: 1000;
   width: 100%;
 }
 
 .search-bar {
   padding-right: 3px;
-  border-radius: 30px;
+  border-radius: 20px;
   width: 25vw;
+  height: 30px;
+  font-size: 1vw;
+}
+
+.nav-link {
+  color: white;
 }
 
 .btn {

@@ -1,9 +1,9 @@
 <div class="price-card">
-  <div class="nes-container is-rounded mt-auto">
-    <h3 class="press-start-2p-regular mb-5">Price</h3>
-      <p style="text-align: right; padding-right: 30px">$ <%= @pokemon.price %> AUD</p>
+  <div class="mt-auto box">
+    <h3 class="mb-3 d-flex justify-content-center price">Price</h3>
+      <p class="mb-4 d-flex justify-content-center price" >$ <%= @pokemon.price %> AUD</p>
     <div class="d-grid">
-        <%= button_to "BOOK", new_pokemon_booking_path(@pokemon), method: :get, class: "nes-btn is-warning w-100" %>
+        <%= button_to "BOOK", new_pokemon_booking_path(@pokemon), method: :get, class: "btn btn-warning mt-3 text-align-right w-100", style: "background-color: #003153; color: white;" %>
     </div>
   </div>
 </div>
