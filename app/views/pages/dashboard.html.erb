@@ -7,8 +7,8 @@
           <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xxl-3 d-flex align-items-center the-cards">
             <%= link_to pokemon_path(pokemon), style: "text-decoration: none;" do %>
               <div class="card mb-4 shadow-sm">
-                <% if pokemon.photos.present?%>
-                  <%= cl_image_tag pokemon.photos.first.key, height: 200, width: 215%>
+                <% if pokemon.photos.present? %>
+                  <%= cl_image_tag pokemon.photos.first.key, height: 200, width: 215 %>
                 <% end %>
                 <div class="pokemon-card">
                   <span class="pokemon-name"><%= pokemon.name %></span>
@@ -21,7 +21,7 @@
       </div>
     <% else %>
       <p>You have no pokemons yet.</p>
-  <% end %>
+    <% end %>
   </div>
 
   <div class="my-5">
@@ -29,26 +29,29 @@
       <p>My Bookings</p>
       <% current_user.bookings.each do |booking| %>
         <div class="my-3 d-flex align-items-center justify-content-between">
-        Pokemon: <%= booking.pokemon.name%>. <br>
-        Pick up: <%= booking.start_date.strftime("%d %B %Y")%> <br>
-        Drop off: <%= booking.end_date.strftime("%d %B %Y")%>. <br>
-        <% duration = (booking.end_date - booking.start_date).to_i %>
-        <% price = @pokemon_price[0] * duration %>
-        Duration: <%= duration %> days. <br>
-        Total amount: $ <%= price %> AUD.
-        <div class="d-flex mx-4">
-          <%= link_to edit_booking_path(booking), class: "me-3" do %>
-            <i class="fa-solid fa-pen" style="color: black;"></i>
+          Pokemon: <%= booking.pokemon.name %>. <br>
+          <% if booking.start_date.present? && booking.end_date.present? %>
+            Pick up: <%= booking.start_date.strftime("%d %B %Y") %> <br>
+            Drop off: <%= booking.end_date.strftime("%d %B %Y") %>. <br>
+            <% duration = (booking.end_date - booking.start_date).to_i %>
+            <% price = booking.pokemon.price * duration %>
+            Duration: <%= duration %> days. <br>
+            Total amount: $<%= price %> AUD.
+          <% else %>
+            Dates not available. <br>
           <% end %>
-          <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "me-3" do %>
-            <i class="fa-solid fa-trash" style="color: black;"></i>
-          <% end %>
+          <div class="d-flex mx-4">
+            <%= link_to edit_booking_path(booking), class: "me-3" do %>
+              <i class="fa-solid fa-pen" style="color: black;"></i>
+            <% end %>
+            <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "me-3" do %>
+              <i class="fa-solid fa-trash" style="color: black;"></i>
+            <% end %>
+          </div>
         </div>
-        </div>
-      <%end%>
+      <% end %>
     <% else %>
       <p>You have no bookings yet.</p>
     <% end %>
   </div>
-
 </div>

@@ -5,16 +5,16 @@
         <%= f.input :start_date,
         placeholder: "Pick up date",
         as: :string,
-        input_html: { data: { controller: "datepicker"} } %>
+        input_html: { id: "booking_start_date", data: { controller: "datepicker" } } %>
       </div>
       <div class="form-group">
         <%= f.input :end_date,
         placeholder: "Drop off date",
         as: :string,
-        input_html: { data: { controller: "datepicker"} } %>
+        input_html: { id: "booking_end_date", data: { controller: "datepicker" } } %>
       </div>
       <div class="form-group">
-        <%= f.button :submit, "Book Now", class: "my-5 w-100", style: "background-color: #003153; color: white;" %>
+        <%= f.button :submit, "Book Now", class: "my-5 w-100", id: "booking_button", style: "background-color: #003153; color: white;" %>
       </div>
     </div>
   <% end %>
