@@ -8,7 +8,7 @@ export default class extends Controller {
   }
 
   initializeDatePickers() {
-    const bookedDateRanges = window.bookedDateRanges || [];
+    const bookedDateRanges = JSON.parse(this.element.dataset.bookedDateRanges) || [];
     console.log("Inside Stimulus Controller:", bookedDateRanges);
 
     this.initializeStartDatePicker(bookedDateRanges);
