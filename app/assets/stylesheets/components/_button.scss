@@ -4,12 +4,9 @@ a {
 }
 
 .button-font {
-  font-size: 0.90vw;
+  font-size: 0.80vw;
 }
 
-// .forgot-your-password :hover {
-
-// }
 .hover-effect-button {
   &:hover {
     background-color: #003153;
@@ -17,5 +14,11 @@ a {
     border-radius: 2%;
     padding: 10px;
 
+  }
+}
+
+@media (max-width: 575px) {
+  .button-font {
+    font-size: 10px;
   }
 }

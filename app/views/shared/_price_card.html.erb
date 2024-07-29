@@ -3,7 +3,7 @@
     <h3 class="mb-3 d-flex justify-content-center price">Price</h3>
       <p class="mb-4 d-flex justify-content-center price" >$ <%= @pokemon.price %> AUD</p>
     <div class="d-grid">
-        <%= button_to "BOOK", new_pokemon_booking_path(@pokemon), method: :get, class: "btn btn-warning mt-3 text-align-right w-100", style: "background-color: #003153; color: white;" %>
+        <%= button_to "BOOK", new_pokemon_booking_path(@pokemon), method: :get, class: "btn btn-warning mt-3 text-align-right w-100 reloadButton", style: "background-color: #003153; color: white;" %>
     </div>
   </div>
 </div>

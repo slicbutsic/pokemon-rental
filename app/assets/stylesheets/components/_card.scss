@@ -37,7 +37,17 @@
   }
 
   .card {
-    width: 100%; /* Ensure the card takes full width of its container */
+    width: 100%;
+  }
+
+  .pokemon-name {
+    font-weight: bold;
+    font-size: 10px;
+  }
+
+  .pokemon-price {
+    font-size: 10px;
+    margin-right: 14px;
   }
 }
 

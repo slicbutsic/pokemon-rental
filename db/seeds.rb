@@ -26,7 +26,7 @@ puts "Creating pokemons...."
 
 # Querying for all pokemons
 
-pokemon_name_url = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0"
+pokemon_name_url = "https://pokeapi.co/api/v2/pokemon?limit=60&offset=0"
 user_serialized = URI.open(pokemon_name_url).read
 user = JSON.parse(user_serialized)
 

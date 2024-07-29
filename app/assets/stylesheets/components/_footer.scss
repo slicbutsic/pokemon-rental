@@ -9,3 +9,10 @@
 .font-size-footer-page {
   font-size: 1vw;
 }
+
+
+@media (max-width: 575px) {
+  .font-size-footer-page {
+    font-size: 10px;
+  }
+}
