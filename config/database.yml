@@ -11,9 +11,6 @@ test:
   <<: *default
   database: pokemon_world_test
 
-
 production:
   <<: *default
-  database: pokemon_world_production
-  username: pokemon_world
-  password: <%= ENV["POKEMON_WORLD_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
