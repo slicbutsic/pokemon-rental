@@ -81,3 +81,4 @@ end
 gem "pg_search"
 gem 'geocoder'
 gem 'ffi', '1.16.3'
+gem 'rubygems-update', '~> 3.3.22'
