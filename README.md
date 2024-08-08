@@ -41,6 +41,10 @@ rails db:seed
 4) Start the server
 5) Visit " http://localhost:3000 "
 
+Log in:
+email: "user@admin.com",
+password: "123456"
+
 Usage
 - Register: Create an account to start browsing and booking Pokémon.
 - Browse: Navigate through the available Pokémon and view their details.
